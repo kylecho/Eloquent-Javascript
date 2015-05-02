@@ -98,6 +98,7 @@ function drawChessBoard(width, height) {
 
 drawChessBoard(8,8);
 
+====================================================================================================
 // Chapter 3: Functions
 /**
  * 1. Minimum
@@ -208,4 +209,184 @@ function countChar(str, char) {
 // → 2
 // console.log(countChar("kakkerlak", "k"));
 // → 4
+
+====================================================================================================
+// Chapter 4: Data Structures: Objects and Arrays
+
+// The sum of a range
+
+// range
+// pseudocode
+method range(start, end):
+  SET a variable result with an empty array
+  FOR numbers from start to end
+    SAVE each number to result
+    Add one to start
+      Repeat this until start equals end
+  OUTPUT result
+END program
+
+// real code
+function range(start, end) {
+  var result = [];
+  for (i = start; i <= end; i++) {
+    result.push(i);
+  }
+  return result;
+}
+
+// sum
+// pseudocode
+method sum(array):
+  SET a variable called temp with 0
+  FOR each elements in the array
+    ADD it to temp
+    REPEAT this process until all elements are added to temp
+  OUTPUT temp
+END program
+
+// real code
+function sum(array) {
+  var temp = 0;
+  for (var i = 0; i < array.length; i++) {
+    temp += array[i];
+  }
+  return temp;
+}
+
+// modify range
+// pseudocode
+method range(start, end, step):
+  SET a variable named result with an empty array
+  IF start is less than end THEN:
+    FOR numbers from start to end
+      ADD each number to result
+      INCREMENT the counter by step
+      REPEAT this until end is added to result
+  ELSE
+    FOR numbers from start to end
+      ADD each number to result
+      DECREMENT the counter by step
+      REPEAT this until end is added to result
+  ENDIF
+  OUTPUT result
+END program
+
+// real code
+function range(start, end, step) {
+  var result = [];
+  if (start < end) {
+    for (var i = start; i <= end; i += step) {
+      result.push(i);
+    }
+  } else {
+    for (var j = start; j >= end; j += step) {
+      result.push(j);
+    }
+  }
+  return result;
+}
+
+// Reversing an Array
+
+// reverseArray
+// pseudocode
+method reverseArray(array):
+  SET a variable named result with an empty array
+  FOR each element in the array starting from the last index until the first index:
+    ADD each element to result
+    DECREMENT the counter by one
+    REPEAT this process
+  OUTPUT result
+END program
+
+// real code
+function reverseArray(array) {
+  var result = [];
+  for (var i = array.length - 1; i >= 0; i--) {
+    result.push(array[i]);
+  }
+  return result;
+}
+
+// reverseArrayInPlace
+// pseudocode
+method reverseArrayInPlace(array):
+  FIND the number of the array length divided by two and set it to a variable max
+  SET a variable named tempLeft with no value
+  SET a variable named tempRight with no value
+  SET a variable named counter with a number 0
+    FOR element from the index 0 to max:
+      SET tempLeft equals array value of the current index
+      SET tempRight equals array value of the last index minus counter
+      SET array value of the current index equals to tempRight
+      SET array value of the last index minus counter equals to tempLeft
+      INCREMENT one to counter
+  OUTPUT program
+END program
+
+// real code
+function reverseArrayInPlace(array) {
+  var max = Math.floor(array.length / 2);
+  var tempLeft;
+  var tempRight;
+  var counter = 0;
+  for (var i = 0; i < max; i++) {
+    tempLeft = array[i];
+    tempRight = array[(array.length - 1) - counter];
+    array[i] = tempRight;
+    array[(array.length - 1) - counter] = tempLeft;
+    counter++;
+  }
+  return array;
+}
+/**
+// A list
+// arrayToList
+// pseudocode
+method arrayToList(array):
+  SET a variable named list with an empty object
+  SET a variable named recursion to have a method with array as a parameter:  
+      IF one next to the current element exists in the array THEN
+        SET list object with a property named 'value: ' equals the value of the array with the current index
+        SET list object with a property named 'rest: ' equals recursion
+      ELSE
+        SET list object with a property named 'value: ' equals the value of the array with the current index
+        SET list object with a property named 'rest: ' equals null
+  FOR each element in the array:
+    CALL recursion with array
+  OUTPUT list
+END program
+
+function arrayToList(array) {
+  var list = {};
+  var recursion = function(array) {
+    if (array.indexOf(array[i + 1]) == -1) {
+      list['value: '] = array[i];
+      list['rest: '] = null;
+    } else {
+      list['value: '] = array[i];
+      list['rest: '] = recursion(array);
+    }
+  }
+
+  for (var i = 0; i < array.length; i++) {
+    recursion(array);
+  }
+
+  return list;
+}
+
+function arrayToList(array) {
+  var list = null;
+  for (var i = array.length - 1; i >= 0; i--) {
+    list = {value: array[i], rest: list};
+    return list;
+  }
+}
+
+// listToArray
+// prepend
+// nth
+*/
 
