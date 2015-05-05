@@ -443,3 +443,54 @@ function deepEqual(a, b) {
   return propsInA == propsInB;
 }
 
+====================================================================================================
+
+// Chapter 5.
+
+// Flattening
+
+var arrays = [[1, 2, 3], [4, 5], [6]];
+
+var myArr = arrays.reduce(function(prev, curr) {
+  return prev.concat(curr);
+});
+
+console.log(myArr);
+
+
+// Mother-child age difference
+
+// Historical life expectancy
+
+// Evenry and then some
+// pseudocode
+method every(array):
+  FOR each elements in the array from the index 0 to the last:
+    COMPARE the element with current index and the next index
+    IF calling arg with the current array element is not true THEN
+      OUTPUT false
+      INCREMENT the counter
+      REPEAT this process
+    ENDIF
+  ENDFOR
+  OUTPUT true
+END program
+
+function every(array, arg) {
+  for (var i = 0; i < array.length; i++) {
+    if (!arg(array[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function some(array, arg) {
+  for (var i = 0; i < array.length; i++) {
+    if (arg(array[i])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
