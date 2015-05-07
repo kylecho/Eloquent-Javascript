@@ -1,2 +1,2 @@
-# Solution to Eloquent Javascript
-Here you can find my solution to exercises found from Eloquent-Javascript.
+#Eloquent Javascript Solution
+Here you can find my solution to exercises found from Eloquent Javascript.
